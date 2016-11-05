@@ -139,6 +139,7 @@ li {
   color: #fff;
   font-size: 0.7em;
   padding: 2px 4px;
+  margin-right: 5px;
 }
 .main h4.name span.type {
   margin-left: 5px;
@@ -266,6 +267,7 @@ li {
   line-height: 1.3;
 }
 .main .nameContainer h4 .signature {
+  margin-left: 2px;
   font-size: 13px;
   font-weight: normal;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
