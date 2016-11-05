@@ -243,6 +243,8 @@ li {
   font-size: 0.7em;
   padding: 2px 4px;
   margin-right: 5px;
+  position: relative;
+  top: -2px;
 }
 .main .nameContainer .inherited a {
   color: #fff;
