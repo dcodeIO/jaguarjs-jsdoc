@@ -8,6 +8,12 @@ var self = this;
         <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentations">
     </div>
     <ul class="list">
+        <li class="item" data-name="global">
+            <span class="title">
+                <?js= self.linkto("global", "[ top level ]") ?>
+                <span class="static">static</span>
+            </span>
+        </li>
     <?js
     this.nav.forEach(function (item) {
     ?>
