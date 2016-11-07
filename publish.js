@@ -7,7 +7,6 @@ var template = require('jsdoc/template'),
     helper = require('jsdoc/util/templateHelper'),
     _ = require('underscore'),
     htmlsafe = helper.htmlsafe,
-    linkto = helper.linkto,
     resolveAuthorLinks = helper.resolveAuthorLinks,
     scopeToPunc = helper.scopeToPunc,
     hasOwnProp = Object.prototype.hasOwnProperty,
@@ -289,6 +288,17 @@ exports.publish = function(taffyData, opts, tutorials) {
     data = helper.prune(data);
     data.sort('longname, version, since');
     helper.addEventListeners(data);
+
+    // override links to source files to reference sourceRoot
+    function linkto() {
+        var args = Array.prototype.slice.call(arguments);
+        if (opts.sourceRoot && /\.js$/.test(args[0])) {
+            if (!args[1])
+                args[1] = args[0];
+            args[0] = opts.sourceRoot + args[0];
+        }
+        return helper.linkto.apply(helper, args);
+    }
 
     var sourceFiles = {};
     var sourceFilePaths = [];
