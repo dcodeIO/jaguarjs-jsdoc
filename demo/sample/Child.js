@@ -16,6 +16,7 @@ Child.prototype = /** @lends Child.prototype */{
 
     /**
      * cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+     * @throws {TypeError} Mollit anim id est laborum
      */
     testMethodInChild: function (paramUnNotation) {
         return {};

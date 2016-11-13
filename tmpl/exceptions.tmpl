@@ -2,23 +2,24 @@
     var data = obj;
 ?>
 <?js if (data.description && data.type && data.type.names) { ?>
-<dl>
-    <dt>
-        <div class="param-desc">
-        <?js= data.description ?>
-        </div>
-    </dt>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                <?js= this.partial('type.tmpl', data.type.names) ?>
-            </dd>
-        </dl>
-    </dt>
-</dl>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Type</th>	
+		<th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="type">
+            <?js= this.partial('type.tmpl', data.type.names) ?>
+        </td>
+        <td class="description last">
+            <?js= data.description ?>
+        </td>
+    </tr>
+    </tbody>
+</table>
 <?js } else { ?>
     <div class="param-desc">
     <?js if (data.description) { ?>
