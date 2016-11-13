@@ -35,6 +35,20 @@ function hashToLink(doclet, hash) {
     return '<a href="' + url + '">' + hash + '</a>';
 }
 
+function mangleType(type) {
+    var found;
+    var orig = type;
+    do {
+        found = false;
+        type = type.replace(/Array\.&lt;(.+)(?!(?:\/|<)\w+)>/g, function($0, $1) {
+            found = true;
+            return $1 + "[]";
+        });
+    } while (found);
+    type = type.replace(/(Object|Promise)\./g, '$1');
+    return type;
+}
+
 function needsSignature(doclet) {
     var needsSig = false;
 
@@ -68,7 +82,8 @@ function addSignatureReturns(f) {
     f.signature = '<span class="signature">'+(f.signature || '') + '</span>';
     
     if (returnTypes.length) {
-        f.signature += '<span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">'+(returnTypes.length ? '{'+returnTypes.join('|')+'}' : '')+'</span>';
+        rtypes = returnTypes.map(mangleType);
+        f.signature += '<span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">'+(rtypes.length ? '{ '+rtypes.join(' | ')+' }' : '')+'</span>';
     }
 }
 
@@ -82,7 +97,10 @@ function addAttribs(f) {
     var attribs = helper.getAttribs(f);
 
     if (attribs.length) {
-        f.attribs = '<span class="type-signature ' + (attribs[0] === 'static' ? 'static' : '') + '">' + htmlsafe(attribs.length ? attribs.join(',') : '') + '</span>';
+        if (attribs[0] === 'static')
+            attribs.shift();
+        if (attribs.length)
+            f.attribs = '<span class="type-signature ' + (attribs[0] === 'static' ? 'static' : '') + '">' + htmlsafe(attribs.length ? attribs.join(',') : '') + '</span>';
     }    
 }
 
@@ -439,6 +457,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     view.resolveAuthorLinks = resolveAuthorLinks;
     view.tutoriallink = tutoriallink;
     view.htmlsafe = htmlsafe;
+    view.mangleType = mangleType;
     view.members = members; //@davidshimjs: To make navigation for customizing
 
     // once for all

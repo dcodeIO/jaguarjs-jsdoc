@@ -5,13 +5,16 @@ var typeSignature = '';
 
 if (data.type && data.type.names) {
     data.type.names.forEach(function (name) {
-        typeSignature += '<span class="type-signature type ' + name.toLowerCase() + '">' + self.linkto(name, self.htmlsafe(name)) + '</span> ';
+        if (typeSignature)
+            typeSignature += ' | ';
+        typeSignature += self.mangleType(self.linkto(name, self.htmlsafe(name)));
     });
+    typeSignature = '<span class="type-signature type">{ ' + typeSignature + ' }</span>';
 }
 ?>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="<?js= id ?>"><?js= data.attribs + (data.scope === 'static' ? longname : name)  + typeSignature ?></h4>
+        <h4 class="name" id="<?js= id ?>"><?js= (data.scope === 'static' ? longname : name) + " " + data.attribs + typeSignature ?></h4>
     </div>
     
     <?js if (data.summary) { ?>

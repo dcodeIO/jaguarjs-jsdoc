@@ -39,13 +39,17 @@ li {
 .navigation .applicationName a {
   color: #fff;
 }
+.navigation .applicationSubtitle {
+  padding: 0 15px;
+  color: #3da9e9;
+}
 .navigation .search {
   padding: 10px 15px;
 }
 .navigation .search input {
-  background-color: #333;
-  color: #fff;
-  border-color: #555;
+  background-color: #fff;
+  color: #333;
+  border-color: #aaa;
 }
 .navigation .list {
   padding: 10px 15px 0 15px;
@@ -56,10 +60,10 @@ li {
 .navigation li.item {
   margin-bottom: 8px;
   padding-bottom: 8px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #292929;
 }
 .navigation li.item a {
-  color: #bbb;
+  color: #b1b1b1;
 }
 .navigation li.item a:hover {
   color: #fff;
@@ -71,10 +75,10 @@ li {
   font-size: 0.8em;
 }
 .navigation li.item .title a {
-  color: #e1e1e1;
+  color: #fff;
 }
 .navigation li.item .title a:hover {
-  color: #fff;
+  color: #3aafe1;
 }
 .navigation li.item .title .static {
   display: block;
@@ -129,55 +133,43 @@ li {
   font-weight: bold;
   font-size: 12px;
 }
+.main pre {
+  border: 0;
+}
 .main dd {
   font-size: 12px;
 }
 .main h4.name span.type-signature {
   display: inline-block;
   border-radius: 3px;
-  background-color: gray;
-  color: #fff;
-  font-size: 0.7em;
-  padding: 2px 4px;
+  background-color: #ddd;
+  color: #555;
+  padding: 1px 4px;
+  position: relative;
+  top: -2px;
   margin-right: 5px;
+  font: 0.65em "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 }
 .main h4.name span.type {
+  background-color: transparent;
   margin-left: 5px;
 }
 .main h4.name span.glyphicon {
   display: inline-block;
   vertical-align: middle;
-  color: #e1e1e1;
+  color: #999;
   margin-left: 7px;
 }
 .main h4.name span.returnType {
   margin-left: 3px;
+  position: relative;
+  top: 0px;
   background-color: transparent!important;
   color: gray!important;
 }
 .main span.static {
-  display: inline-block;
-  border-radius: 3px;
   background-color: #779c34 !important;
-  color: #fff;
-  font-size: 0.7em;
-  padding: 2px 4px;
-  margin-right: 8px;
-}
-.main span.number {
-  background-color: gray!important;
-}
-.main span.string {
-  background-color: gray!important;
-}
-.main span.object {
-  background-color: #2a6496 !important;
-}
-.main span.array {
-  background-color: #2a6496 !important;
-}
-.main span.boolean {
-  background-color: #ee7d7d !important;
+  color: #000 !important;
 }
 .main .subsection-title {
   font-size: 14px;
@@ -240,20 +232,22 @@ li {
 .main .nameContainer .inherited {
   display: inline-block;
   border-radius: 3px;
-  background-color: #888!important;
-  font-size: 0.7em;
+  background-color: #ddd!important;
+  font-size: 0.65em;
+  font-weight: 500;
   padding: 2px 4px;
   margin-right: 5px;
   position: relative;
   top: -2px;
 }
 .main .nameContainer .inherited a {
-  color: #fff;
+  color: #2a6496;
 }
 .main .nameContainer .tag-source {
   position: absolute;
   top: 17px;
   right: 0;
+  font-weight: normal;
   font-size: 10px;
 }
 .main .nameContainer .tag-source a {
@@ -273,7 +267,7 @@ li {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 .main .nameContainer h4 .type-signature.type a {
-  color: #fff;
+  color: #2a6496;
 }
 .main pre {
   font-size: 11px;
@@ -290,10 +284,14 @@ li {
   padding: 5px 3px;
 }
 .main table .name {
-  width: 110px;
+  width: 120px;
+}
+.main table .default {
+  width: 60px;
 }
 .main table .type {
-  width: 60px;
+  width: 120px;
+  white-space: nowrap;
   color: #aaa;
   font-size: 11px;
 }
@@ -308,11 +306,13 @@ li {
 .main table .description p {
   margin: 0;
 }
+.main table .nullable,
+.main table .repeatable,
 .main table .optional {
   float: left;
   border-radius: 3px;
   background-color: #ddd!important;
-  font-size: 0.7em;
+  font-size: 0.8em;
   padding: 2px 4px;
   margin-right: 5px;
   color: gray;

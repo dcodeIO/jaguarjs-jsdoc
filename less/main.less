@@ -35,6 +35,10 @@
         font-size: 12px;
     }
 
+    pre {
+        border: 0;
+    }
+
     dd {
         font-size: 12px;
     }
@@ -43,26 +47,29 @@
         span.type-signature {
             display: inline-block;
             border-radius: 3px;
-            background-color: gray;
-            color: #fff;
-            font-size: 0.7em;
-            padding: 2px 4px;
+            background-color: #ddd;
+            color: #555;
+            padding: 1px 4px;
+            position: relative; top: -2px;
             margin-right: 5px;
+            font: 0.65em "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
         }
 
         span.type {
+            background-color: transparent;
             margin-left: 5px;
         }
 
         span.glyphicon {
             display: inline-block;
             vertical-align: middle;
-            color: #e1e1e1;
+            color: #999;
             margin-left: 7px;
         }
 
         span.returnType {
             margin-left: 3px;
+            position: relative; top: 0px;
             background-color: transparent!important;
             color: gray!important;
         }
@@ -70,33 +77,8 @@
 
 
     span.static {
-        display: inline-block;
-        border-radius: 3px;
-        background-color: @colorSubtitle!important;
-        color: #fff;
-        font-size: 0.7em;
-        padding: 2px 4px;
-        margin-right: 8px;
-    }
-
-    span.number {
-        background-color: gray!important;
-    }
-
-    span.string {
-        background-color: gray!important;
-    }
-
-    span.object {
-        background-color: @colorLink!important;
-    }
-
-    span.array {
-        background-color: @colorLink!important;
-    }
-
-    span.boolean {
-        background-color: @colorRed!important;
+        background-color: @colorSubtitle !important;
+        color: #000 !important;
     }
 
     .subsection-title {
@@ -171,13 +153,14 @@
         .inherited {
             display: inline-block;
             border-radius: 3px;
-            background-color: #888!important;
-            font-size: 0.7em;
+            background-color: #ddd!important;
+            font-size: 0.65em;
+            font-weight: 500;
             padding: 2px 4px;
             margin-right: 5px;
             position: relative; top: -2px;
             a {
-                color: #fff;
+                color: @colorLink;
             }
         }
 
@@ -185,6 +168,7 @@
             position: absolute;
             top: 17px;
             right: 0;
+            font-weight: normal;
             font-size: 10px;
             a {
                 color: gray;
@@ -207,7 +191,7 @@
             }
 
             .type-signature.type a {
-                color: #fff;
+                color: @colorLink;
             }
         }
     }
@@ -230,11 +214,16 @@
         }
 
         .name {
-            width: 110px;
+            width: 120px;
+        }
+
+        .default {
+            width: 60px;
         }
 
         .type {
-            width: 60px;
+            width: 120px;
+            white-space: nowrap;
             color: #aaa;
             font-size: 11px;
         }
@@ -252,11 +241,13 @@
             }
         }
 
+        .nullable,
+        .repeatable,
         .optional {
             float: left;
             border-radius: 3px;
             background-color: #ddd!important;
-            font-size: 0.7em;
+            font-size: 0.8em;
             padding: 2px 4px;
             margin-right: 5px;
             color: gray;
