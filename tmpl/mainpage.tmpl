@@ -7,6 +7,10 @@ var self = this;
     <h3><?js= data.name ?> <?js= data.version ?></h3>
 <?js } ?>
 
+<?js if (data.repo) { ?>
+    <a href="<?js= data.repo ?>" style="position: fixed; top: 0; right: 0"><img src="images/forkme.png" /></a>
+<?js } ?>
+
 <?js if (data.readme) { ?>
     <section>
         <article class="readme"><?js= data.readme ?></article>

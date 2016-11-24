@@ -479,7 +479,7 @@ exports.publish = function(taffyData, opts, tutorials) {
 
     generate('Index',
         packages.concat(
-            [{kind: 'mainpage', readme: opts.readme, longname: (opts.mainpagetitle) ? opts.mainpagetitle : 'Main Page'}]
+            [{kind: 'mainpage', readme: opts.readme, longname: (opts.mainpagetitle) ? opts.mainpagetitle : 'Main Page', repo: opts.repo }]
         ).concat(files),
     indexUrl);
 

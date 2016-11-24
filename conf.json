@@ -30,5 +30,8 @@
 		"parser": "gfm",
 		"hardwrap": true,
 		"tags": ["examples"]
+	},
+	"opts": {
+		"repo": "https://github.com/dcodeIO/jaguarjs-jsdoc"
 	}
 }
